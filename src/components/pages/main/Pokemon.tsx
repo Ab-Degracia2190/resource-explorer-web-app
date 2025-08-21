@@ -163,19 +163,32 @@ function Pokemon() {
       <div className="w-full p-6 md:p-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-          <div>
-            <h1 className="text-lg md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-              Pokemon Explorer
-            </h1>
-            <p className="text-xs md:text-lg text-gray-600 dark:text-gray-400">
-              Discover and explore the world of Pokemon
-            </p>
+          <div className="flex items-center justify-between w-full md:w-auto">
+            <div>
+              <h1 className="text-lg md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                Pokemon Explorer
+              </h1>
+              <p className="text-xs md:text-lg text-gray-600 dark:text-gray-400">
+                Discover and explore the world of Pokemon
+              </p>
+            </div>
+            {/* Theme toggle button - inline on mobile, separate on desktop */}
+            <div className="md:hidden">
+              <PrimaryButton
+                label={isDark ? <Sun /> : <Moon />}
+                onClick={toggleTheme}
+                className="!bg-gradient-to-r !from-gray-600 !to-gray-700 hover:!from-gray-700 hover:!to-gray-800 !p-3 !rounded-full"
+              />
+            </div>
           </div>
-          <PrimaryButton
-            label={isDark ? <Sun /> : <Moon />}
-            onClick={toggleTheme}
-            className="!bg-gradient-to-r !from-gray-600 !to-gray-700 hover:!from-gray-700 hover:!to-gray-800 !p-3 !rounded-full"
-          />
+          {/* Theme toggle button - separate on desktop */}
+          <div className="hidden md:block">
+            <PrimaryButton
+              label={isDark ? <Sun /> : <Moon />}
+              onClick={toggleTheme}
+              className="!bg-gradient-to-r !from-gray-600 !to-gray-700 hover:!from-gray-700 hover:!to-gray-800 !p-3 !rounded-full"
+            />
+          </div>
         </div>
 
         {/* Filters */}
